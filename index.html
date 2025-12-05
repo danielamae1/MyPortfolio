@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A Journey with Me!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#d9ecff;
+      --card:#f1f7ff;
+      --accent:#7ab8ff;
+      --accent2:#a3d4ff;
+      --muted:#5e6b7a;
+      --font:'Poppins', sans-serif;
+    }
+    *{box-sizing:border-box;font-family:var(--font)}
+    body{margin:0;background:var(--bg);color:#2a3a4a}
+
+    header{
+      position:relative;
+      overflow:hidden;
+      padding:80px 20px 120px 20px;
+      background:linear-gradient(to bottom, #cfe7ff 0%, #d9ecff 100%);
+      text-align:center;
+    }
+    .site-title{font-size:clamp(28px,6vw,48px);font-weight:800;color:#2a3a4a;margin:0}
+    .subtitle{color:var(--muted);margin-top:10px;font-size:16px}
+
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+    .card{background:var(--card);border-radius:20px;padding:22px;margin-bottom:24px;box-shadow:0 8px 20px rgba(122,184,255,0.25);border:2px solid var(--accent2);transition:transform 0.3s}
+    .card:hover{transform:translateY(-4px)}
+
+    .bio-grid{display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:center}
+    .avatar{width:160px;height:160px;border-radius:20px;overflow:hidden;border:3px solid var(--accent)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    h2{margin:0;font-weight:700;color:#1e2d3d}
+    p.lead{color:var(--muted)}
+
+    .memory-lane{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:20px}
+    figure{background:var(--card);border-radius:18px;overflow:hidden;border:2px solid var(--accent2);box-shadow:0 6px 16px rgba(122,184,255,0.2);transition:transform .2s}
+    figure:hover{transform:translateY(-4px)}
+    figure img{width:100%;height:160px;object-fit:cover;cursor:pointer}
+    figcaption{padding:12px;font-size:14px;color:#425264}
+    .caption-title{font-weight:700;color:#1e2d3d;margin-bottom:6px}
+
+    .baby{grid-column:1/-1;background:var(--accent2);border-radius:20px;padding:20px;display:flex;gap:20px;align-items:center;transition:transform .3s}
+    .baby:hover{transform:translateY(-4px)}
+    .baby img{width:280px;height:280px;border-radius:20px;object-fit:cover;border:3px solid var(--accent)}
+    .baby .baby-text{color:#2a3a4a}
+
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:30px;z-index:60;backdrop-filter:blur(4px);flex-direction:row;gap:20px}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:65%;max-height:85%;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.4);transition:transform 0.3s}
+    #lb-info{background:white;padding:20px;border-radius:20px;max-width:28%;box-shadow:0 6px 18px rgba(0,0,0,0.15);color:#2a3a4a}
+    .lb-close{position:absolute;top:20px;right:20px;background:white;border:0;border-radius:50%;padding:8px 12px;font-size:20px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+
+    footer{text-align:center;color:var(--muted);padding:20px;font-size:14px}
+
+    @media(max-width:640px){.bio-grid{grid-template-columns:1fr}.baby{flex-direction:column}.lightbox img{max-width:90%}#lb-info{max-width:90%}}
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- Floating clouds -->
+  <div style="position:absolute;top:20px;left:10%;width:120px;height:60px;background:white;border-radius:40px;filter:blur(2px);opacity:0.8;"></div>
+  <div style="position:absolute;top:50px;left:25%;width:180px;height:80px;background:white;border-radius:50px;filter:blur(3px);opacity:0.8;"></div>
+  <div style="position:absolute;top:30px;right:15%;width:150px;height:70px;background:white;border-radius:50px;filter:blur(3px);opacity:0.8;"></div>
+
+  <!-- Centered title container -->
+  <div style="position: relative; z-index: 10;">
+    <div class="site-title">A Journey with Me!</div>
+    <div class="subtitle">A little peek into the moments that made me, me.</div>
+  </div>
+
+  <!-- Blue wave design -->
+  <svg style="position:absolute;bottom:0;left:0;width:100%;height:120px" viewBox="0 0 1440 320">
+    <path fill="#a3d4ff" fill-opacity="1" d="M0,224L48,197.3C96,171,192,117,288,122.7C384,128,480,192,576,213.3C672,235,768,213,864,192C960,171,1056,149,1152,160C1248,171,1344,213,1392,234.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+  </svg>
+</header>
+
+<main class="container">
+  <!-- BIOGRAPHY -->
+  <section class="card" id="biography">
+    <div class="bio-grid">
+      <div class="avatar">
+        <img src="1-profile.jpg" alt="Profile Photo" data-full="1-profile.jpg">
+      </div>
+      <div>
+        <h2>DANIELA MAE E. LAGUNERO</h2>
+        <p class="lead">Hello! - I'm Dan. I love reading, sleeping.</p>
+        <ul style="margin-top:12px;color:var(--muted);line-height:1.6">
+          <li><strong>Born:</strong> October</li>
+          <li><strong>Location:</strong> Salag</li>
+          <li><strong>Education:</strong> Norsu</li>
+          <li><strong>Interests:</strong> Foods</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daniela's Memory Lane / BABY + Photos -->
+  <section class="card" id="memory-lane">
+    <h3 style="margin-top:0">Daniela's Memory Lane</h3>
+    <p style="color:var(--muted);margin-top:6px">From baby photos to recent moments — 21 pictures with short explanations.</p>
+    <div class="memory-lane" style="margin-top:14px">
+
+      <!-- Featured Baby Photo -->
+      <div class="baby">
+        <img src="2-baby-pic.jpg" alt="Baby Photo" data-full="2-baby-pic.jpg">
+        <div class="baby-text">
+          <div style="font-weight:700;font-size:16px">Baby Photo — First Smile</div>
+          <div>This is my baby picture, taken when I was 6 months old. I remember my parents saying I smiled for the first time that day.</div>
+        </div>
+      </div>
+
+      <!-- Timeline Photos 3-21 -->
+      <figure><img src="3-with-sister.jpg" data-full="3-with-sister.jpg" alt="With Sister"><figcaption><div class="caption-title">With Sister</div><div>Special moments spent with my sister.</div></figcaption></figure>
+      <figure><img src="4-with-lola.jpg" data-full="4-with-lola.jpg" alt="With Lola"><figcaption><div class="caption-title">With Lola</div><div>Enjoying time with my Lola, a cherished memory.</div></figcaption></figure>
+      <figure><img src="5-grd-4.jpg" data-full="5-grd-4.jpg" alt="Grade 4"><figcaption><div class="caption-title">Grade 4</div><div>School life memories in Grade 4.</div></figcaption></figure>
+      <figure><img src="6-girl-scout.jpg" data-full="6-girl-scout.jpg" alt="Girl Scout"><figcaption><div class="caption-title">Girl Scout</div><div>Joining Girl Scouts and learning teamwork.</div></figcaption></figure>
+      <figure><img src="7-grd-5.jpg" data-full="7-grd-5.jpg" alt="Grade 5"><figcaption><div class="caption-title">Grade 5</div><div>Memorable school activities during Grade 5.</div></figcaption></figure>
+      <figure><img src="8-grd-6-grad.jpg" data-full="8-grd-6-grad.jpg" alt="Grade 6 Graduation"><figcaption><div class="caption-title">Grade 6 Graduation</div><div>Graduation day celebrations in Grade 6.</div></figcaption></figure>
+      <figure><img src="9-lolobday.jpg" data-full="9-lolobday.jpg" alt="Lolo Birthday"><figcaption><div class="caption-title">Lolo's Birthday</div><div>Celebrating Lolo's birthday with family.</div></figcaption></figure>
+      <figure><img src="10-grd-7.jpg" data-full="10-grd-7.jpg" alt="Grade 7"><figcaption><div class="caption-title">Grade 7</div><div>Grade 7 school memories.</div></figcaption></figure>
+      <figure><img src="11-grd-8.jpg" data-full="11-grd-8.jpg" alt="Grade 8"><figcaption><div class="caption-title">Grade 8</div><div>Fun activities and friends in Grade 8.</div></figcaption></figure>
+      <figure><img src="12-xmas.jpg" data-full="12-xmas.jpg" alt="Christmas"><figcaption><div class="caption-title">Christmas</div><div>Celebrating Christmas with joy and love.</div></figcaption></figure>
+      <figure><img src="13-kumpirma.jpg" data-full="13-kumpirma.jpg" alt="Kumpirma"><figcaption><div class="caption-title">Kumpirma</div><div>A special milestone in life: my confirmation.</div></figcaption></figure>
+      <figure><img src="14-grd11-recog.jpg" data-full="14-grd11-recog.jpg" alt="Grade 11 Recognition"><figcaption><div class="caption-title">Grade 11 Recognition</div><div>Receiving awards and recognitions in Grade 11.</div></figcaption></figure>
+      <figure><img src="15-researchdef.jpg" data-full="15-researchdef.jpg" alt="Research Defense"><figcaption><div class="caption-title">Research Defense</div><div>Completing my research defense successfully.</div></figcaption></figure>
+      <figure><img src="16-grd12-grad.jpg" data-full="16-grd12-grad.jpg" alt="Grade 12 Graduation"><figcaption><div class="caption-title">Grade 12 Graduation</div><div>Celebrating the final graduation in high school.</div></figcaption></figure>
+      <figure><img src="17-intrams.jpg" data-full="17-intrams.jpg" alt="Intrams"><figcaption><div class="caption-title">Intrams</div><div>Participating in intramurals events.</div></figcaption></figure>
+      <figure><img src="18-motherbday.jpg" data-full="18-motherbday.jpg" alt="Mother's Birthday"><figcaption><div class="caption-title">Mother's Birthday</div><div>Celebrating my mom's special day.</div></figcaption></figure>
+      <figure><img src="19-shang2.jpg" data-full="19-shang2.jpg" alt="Shang 2"><figcaption><div class="caption-title">Shang 2</div><div>Visiting Shang 2 mall with family and friends.</div></figcaption></figure>
+      <figure><img src="20-acquaintance.jpg" data-full="20-acquaintance.jpg" alt="Acquaintance"><figcaption><div class="caption-title">Acquaintance</div><div>Meeting new friends and acquaintances.</div></figcaption></figure>
+      <figure><img src="21-pinning.jpg" data-full="21-pinning.jpg" alt="Pinning Ceremony"><figcaption><div class="caption-title">Pinning Ceremony</div><div>Special moment during the pinning ceremony.</div></figcaption></figure>
+
+    </div>
+  </section>
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+  <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+  <img id="lb-img" src="" alt="Expanded photo">
+  <div id="lb-info"></div>
+</div>
+
+<footer>
+  Made with ♥ by Daniela Mae E. Lagunero
+</footer>
+
+<script>
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+const lbInfo = document.getElementById('lb-info');
+const lbClose = document.getElementById('lb-close');
+
+document.querySelectorAll('figure img, .baby img, .avatar img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => {
+    const full = img.getAttribute('data-full') || img.src;
+    lbImg.src = full;
+
+    const fig = img.closest('figure');
+    if(fig){
+      const title = fig.querySelector('.caption-title')?.innerText || '';
+      const desc = fig.querySelector('figcaption div:last-child')?.innerText || '';
+      lbInfo.innerHTML = <h3 style='margin-top:0'>${title}</h3><p>${desc}</p>;
+    } else {
+      const alt = img.alt || 'Photo';
+      const desc = img.nextElementSibling?.innerText || '';
+      lbInfo.innerHTML = <h3>${alt}</h3><p>${desc}</p>;
+    }
+
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+  });
+});
+
+lbClose.addEventListener('click', () => {
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden', 'true');
+  lbImg.src = '';
+  lbInfo.innerHTML = '';
+});
+
+lb.addEventListener('click', (e) => {
+  if(e.target === lb) {
+    lb.classList.remove('open');
+    lbImg.src = '';
+    lbInfo.innerHTML = '';
+    lb.setAttribute('aria-hidden', 'true');
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape') {
+    lb.classList.remove('open');
+    lbImg.src = '';
+    lbInfo.innerHTML = '';
+    lb.setAttribute('aria-hidden', 'true');
+  }
+});
+</script>
+
+</body>
+</html>
